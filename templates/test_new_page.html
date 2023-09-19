@@ -6,51 +6,65 @@
     box-shadow: 5px 5px 5px 5px gainsboro;
 
 }
-</style>
- <style>
-        body {
-  margin: 0;
-  padding: 0;
+
+.grow:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-.gradient:hover {
+.gradient {
     height: 100vh;
     width: 100%;
     background: linear-gradient(149deg, rgba(24,187,156,1) 0%, rgb(65, 246, 217) 42%, rgba(182, 10, 241, 0.71) 100%);
-    animation: gradient 5s infinite linear;
+
+    animation: paused gradient 5s infinite linear;
     background-size: 400%;
 }
+.gradient:hover{animation: running gradient 5s infinite linear;}
 
 
 @keyframes gradient {
     0% {
         background-position:  80% 0%;
-         opacity:0;
     }
-    15%
-        {
-        background-position:  80% 0%;
-        opacity:100;
-    }
+
     50% {
         background-position:  20% 100%;
     }
-        85%
-        {
-        background-position:  80% 0%;
-        opacity:100;
-    }
+
     100% {
         background-position:  80% 0% ;
     }
 
     }
 
+.interactive_gradient
+{
+    background: radial-gradient(circle at 0px 0px, rgba(75, 234, 255, 0.35), rgba(224, 102, 238, 0.4));
+}
+
+
+.back_right{
+    height: 1000px;
+    background-image: url('/static/2.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+</style>
+ <style>
+        body {
+
+  margin: 0;
+  padding: 0;
+}
+
  </style>
 <main class="container-fluid py-5" style="margin-bottom: 10%;">
 
-
-  <div class="container py-4">
+<div class="container py-4">
     <header class="pb-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-database-fill-gear" viewBox="0 0 16 16" >
@@ -61,79 +75,53 @@
       </a>
     </header>
 
-{#    <div class="p-5 mb-4 bg-body-tertiary rounded-3" style= "background-image: linear-gradient(to bottom right,   rgba(0,179,234,0.44),rgba(69,229,64,0.58));">#}
-{#      <div class="container-fluid py-5" >#}
-{#        <h1 class="display-5 fw-bold">Абонентские данные</h1>#}
-{#        <p class="col-md-8 fs-4">Просмотр базы абонентов GPON: адреса, услуги, куда и когда подключён и др.</p>#}
-{#          <a href="http://127.0.0.1:8000/" class="btn btn-outline-secondary btn-lg">Перейти на </a>#}
-{#      </div>#}
-{#    </div>#}
-{##}
-{##}
 
-<div class="row align-items-md-stretch">
-      <div class="col-md-6 pl-2 ">
+    <div class="row align-items-md-stretch ">
+        <div class="col-md-6 pl-2 ">
 
-            <div class="h-100  mb-2 p-5 rounded-3 border border-dark-subtle shadow-hover gradient   " type="button">
+            <div id="left" class="h-100  p-5 rounded-3 border border-dark-subtle grow  interactive_gradient shadow-hover " type="button">
                 <h2>Абонентские данные</h2>
                 <p>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </p>
+                <img class="bi d-block mx-auto " style="height: 300px;position: relative;right: 100px;bottom: -60px;"  src="{% static '1.png' %}">
 {#                <a  class="btn btn-outline-light"> Просмотрs </a>#}
             </div>
         </div>
+
         <div class="col-md-6 pl-2 ">
-            <div class="h-100 p-5 border rounded-3 border border-dark-subtle shadow-hover gradient" type="button">
+            <div  id="right" class="  h-100 p-5 border rounded-3 border border-dark-subtle grow interactive_gradient shadow-hover" type="button">
                 <h2>Технические данные</h2>
                 <p>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </p>
+
+                <img class="bi d-block mx-auto " style="height: 300px;position: relative;right: -80px;bottom: -50px;"  src="{% static '2.png' %}">
 {#                <a href="http://127.0.0.1:8000/" class="btn btn-outline-light"> Добавить/Изменить данные </a>#}
             </div>
 
         </div>
 
+    </div>
+
+
 </div>
-
-
-
-{#<div class="container">#}
-{#  <div class="row">#}
-{##}
-{#    <div class="col-md-4 rounded-3" style="background-image: url('{% static 'STOIKA.svg' %}'); background-position: center; background-repeat: no-repeat; background-size: cover" ></div>#}
-{##}
-{#    <div class="col-md-8 px-4" >#}
-{##}
-{#        <div class="row pl-2 ">#}
-{##}
-{#            <div class="h-100  mb-2 p-5 rounded-3 shadow border">#}
-{#                <h2>Абонентские данные</h2>#}
-{#                <p>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </p>#}
-{#                <a  class="btn btn-outline-dark"> Просмотрs </a>#}
-{#            </div>#}
-{##}
-{#            <div class="h-100 p-5 border rounded-3 shadow" style= "background-image: linear-gradient(to right, rgba(30,173,241,0.38), rgba(245,99,145,0.26));">#}
-{#                <h2>Технические данные</h2>#}
-{#                <p>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </p>#}
-{#                <a href="http://127.0.0.1:8000/" class="btn btn-outline-dark"> Добавить/Изменить данные </a>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{##}
-{#    </div>#}
-{#  </div>#}
-{#</div>#}
-
-
-
-
-
-
-
-
-
-  </div>
-
-
-
-
-
 
 </main>
 
+
+
+<script>
+const div1 = document.getElementById('left');
+const div2 = document.getElementById('right');
+
+div1.addEventListener('mousemove', e => {
+	const rect = div1.getBoundingClientRect();
+	const x = e.clientX - rect.left;
+	const y = e.clientY - rect.top;
+	div1.style.background = `radial-gradient(circle at ${x}px ${y}px,  rgba(75, 234, 255, 0.35), rgba(224, 102, 238, 0.4))`;
+});
+
+div2.addEventListener('mousemove', e => {
+	const rect = div2.getBoundingClientRect();
+	const x = e.clientX - rect.left;
+	const y = e.clientY - rect.top;
+	div2.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(75, 234, 255, 0.35), rgba(224, 102, 238, 0.4))`;
+});
+</script>

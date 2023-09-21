@@ -1,63 +1,8 @@
 
 {% load static %}
 
-<style>
-.shadow-hover:hover {
-    box-shadow: 5px 5px 5px 5px gainsboro;
+<link rel="stylesheet" href="{% static "css/GPON_main_page.css" %}" />
 
-}
-
-.grow:hover {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-}
-
-.gradient {
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(149deg, rgba(24,187,156,1) 0%, rgb(65, 246, 217) 42%, rgba(182, 10, 241, 0.71) 100%);
-
-    animation: paused gradient 5s infinite linear;
-    background-size: 400%;
-}
-.gradient:hover{animation: running gradient 5s infinite linear;}
-
-
-@keyframes gradient {
-    0% {
-        background-position:  80% 0%;
-    }
-
-    50% {
-        background-position:  20% 100%;
-    }
-
-    100% {
-        background-position:  80% 0% ;
-    }
-
-    }
-
-.interactive_gradient
-{
-    background: radial-gradient(circle at 0px 0px, rgba(75, 234, 255, 0.35), rgba(224, 102, 238, 0.4));
-}
-
-
-.back_right{
-    padding-bottom: 600px!important;
-
-}
-</style>
- <style>
-        body {
-
-  margin: 0;
-  padding: 0;
-}
-
- </style>
 <main class="container-fluid py-5">
 
 <div class="container py-4">
@@ -75,21 +20,17 @@
     <div class="row align-items-md-stretch ">
         <div class="col-md-6 pl-2 ">
 
-            <div id="left" class="back_right p-5 rounded-3 border border-dark-subtle grow shadow-hover " style="background-image: url('/static/left.png')" type="button">
+            <div id="left" class="pb600px p-5 rounded-3 border border-dark-subtle grow shadow-hover " style="background-image: url('/static/left.png')" type="button">
                 <h2>Абонентские данные</h2>
                 <p>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </p>
-{#                <img class="bi d-block mx-auto " style="height: 300px;position: relative;right: 100px;bottom: -60px;"  src="{% static '1.png' %}">#}
-{#                <a  class="btn btn-outline-light"> Просмотрs </a>#}
             </div>
         </div>
 
         <div class="col-md-6 pl-2 ">
-            <div  id="right" class=" back_right p-5 border rounded-3 border border-dark-subtle grow shadow-hover" style="background-image: url('/static/right.png')" type="button">
+            <div  id="right" class=" pb600px p-5 rounded-3 border border-dark-subtle grow shadow-hover" style="background-image: url('/static/right.png')" type="button">
                 <h2>Технические данные</h2>
                 <p>ТЕКСТ ТЕКСТ ТЕКСТ ТЕКСТ </p>
 
-{#                <img class="bi d-block mx-auto " style="height: 300px;position: relative;right: -80px;bottom: -50px;"  src="{% static '2.png' %}">#}
-{#                <a href="http://127.0.0.1:8000/" class="btn btn-outline-light"> Добавить/Изменить данные </a>#}
             </div>
 
         </div>

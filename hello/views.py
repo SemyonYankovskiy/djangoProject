@@ -28,7 +28,7 @@ def postuser(request):
                 </h2>
             """)
 
-        return HttpResponse("Invalid data"+ str(userform.errors))
+        return render(request, "new_page.html", {"form": userform})
 
     return render(request, "index.html")
 

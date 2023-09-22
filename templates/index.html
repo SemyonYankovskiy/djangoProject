@@ -4,14 +4,20 @@
 <h2>User form</h2>
 <div class="col-md-6 pl-2 ">
 
-        <form method="post" action="postuser/">
+        <form method="post" action="/postuser">
         {% csrf_token %}
 
         <p>Name: <br />
             <input name="name" />
+            {% if form.name.errors %}
+                <div class="alert alert-danger">ОШИБКА {{ form.name.errors }}</div>
+            {% endif %}
         </p>
         <p>Age: <br />
             <input name="age" type="number" />
+                        {% if form.age.errors %}
+                <div class="alert alert-danger">ОШИБКА {{ form.age.errors }}</div>
+            {% endif %}
         </p>
         <p>
             Languages:<br />
@@ -22,9 +28,13 @@
                 <option value="C++">C++</option>
                 <option value="Java">Java</option>
              </select>
+                        {% if form.languages.errors %}
+                <div class="alert alert-danger">ОШИБКА {{ form.languages.errors }}</div>
+            {% endif %}
         </p>
         <input type="submit" value="Send" />
     </form>
+
     </div>
 
     <div class="col-md-6 pl-2 ">

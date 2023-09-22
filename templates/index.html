@@ -1,20 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>METANIT.COM</title>
-</head>
-<body>
-<main class="container-fluid py-5">
-    <div class="container py-4">
-    <h2>User form</h2>
-    <form method="post" action="postuser/">
+
+
+<div class="row align-items-md-stretch ">
+<h2>User form</h2>
+<div class="col-md-6 pl-2 ">
+
+        <form method="post" action="postuser/">
         {% csrf_token %}
-        <p>Name:<br> <input name="name" /></p>
-        <p>Age:<br> <input name="age" type="number" /></p>
+
+        <p>Name: <br />
+            <input name="name" />
+        </p>
+        <p>Age: <br />
+            <input name="age" type="number" />
+        </p>
+        <p>
+            Languages:<br />
+            <select name="languages">
+                <option value="">Выберите значение</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C++">C++</option>
+                <option value="Java">Java</option>
+             </select>
+        </p>
         <input type="submit" value="Send" />
     </form>
     </div>
-</main>
-</body>
-</html>
+
+    <div class="col-md-6 pl-2 ">
+        <fieldset>
+          <legend>CHOOSE YOUR DESTINY</legend>
+
+              <div>
+                <input type="radio" id="rave" name="destiny" value="rave" checked />
+                <label for="rave">RAVE</label>
+              </div>
+
+            <div>
+              <input type="radio" id="vodka" name="destiny" value="vodka" />
+              <label for="vodka">VODKA</label>
+            </div>
+
+            <div>
+              <input type="radio" id="it" name="destiny" value="it" />
+              <label for="it">IT</label>
+            </div>
+        </fieldset>
+
+    </div>
+</div>

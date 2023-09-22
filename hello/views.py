@@ -7,14 +7,29 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .forms import UserForm
 
 def index(request):
-    return render(request, "index.html")
+    userform = UserForm()
+    return render(request, "new_page.html", {"form": userform})
 
 
 def postuser(request):
-    # получаем из данных запроса POST отправленные через форму данные
-    name = request.POST.get("name", "Undefined")
-    age = request.POST.get("age", 1)
-    return HttpResponse(f"<h2>Name: {name}  Age: {age}</h2>")
+    if request.method == "POST":
+        userform = UserForm(data=request.POST)
+        if userform.is_valid():
+            name = userform.cleaned_data["name"]
+            age = userform.cleaned_data["age"]
+            langs = userform.cleaned_data["languages"]
+            return HttpResponse(f"""
+                <h2>
+                <div>Name: {name}  Age: {age}<div>
+                <div>Languages: {langs}</div>
+                </h2>
+            """)
+
+        return HttpResponse("Invalid data"+ str(userform.errors))
+
+    return render(request, "index.html")
+
+

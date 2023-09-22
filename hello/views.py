@@ -15,6 +15,7 @@ def index(request):
 
 
 def postuser(request):
+    userform = UserForm()
     if request.method == "POST":
         userform = UserForm(data=request.POST)
         if userform.is_valid():
@@ -32,6 +33,6 @@ def postuser(request):
 
         return render(request, "new_page.html", {"form": userform})
 
-    return render(request, "index.html")
+    return render(request, "new_page.html", {"form": userform})
 
 

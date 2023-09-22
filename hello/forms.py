@@ -10,3 +10,8 @@ class UserForm(forms.Form):
         ("C++", "c++"),
         ("Java", "java")
     ])
+    destiny = forms.ChoiceField(choices=[
+        ("RAVE","rave"),
+        ("VODKA", "vodka"),
+        ("IT", "it"),
+    ])

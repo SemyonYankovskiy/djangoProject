@@ -21,10 +21,12 @@ def postuser(request):
             name = userform.cleaned_data["name"]
             age = userform.cleaned_data["age"]
             langs = userform.cleaned_data["languages"]
+            dest = userform.cleaned_data["destiny"]
             return HttpResponse(f"""
                 <h2>
                 <div>Name: {name}  Age: {age}<div>
                 <div>Languages: {langs}</div>
+                <div>DESTINY: {dest}</div>
                 </h2>
             """)
 

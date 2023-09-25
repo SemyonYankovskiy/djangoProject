@@ -2,10 +2,80 @@
 
 
 <div class="container w-50">
-    <h2>User form</h2>
+    <h2>Тест: Кто ты из покемонов</h2>
     <form class="row align-items-md-stretch " method="post" action="/postuser">
         {% csrf_token %}
         {{ form | crispy }}
-        <input type="submit" value="Send" />
+       <div class="pb-5" style="height: 10px;text-align: right" id="slider_show"></div>
+         <button type="submit" class="btn btn-primary">ЖМИ</button>
+
+
+{#    <div class="<col-md></col-md>-6 pl-2 ">#}
+{#            <p>Name: <br />#}
+{#                <input name="name" value="{{ form.name.value|default_if_none:"" }}"/>#}
+{#                {% if form.name.errors %}#}
+{#                    <div class="alert alert-danger">ОШИБКА {{ form.name.errors }}</div>#}
+{#                {% endif %}#}
+{#            </p>#}
+{#            <p>Age: <br />#}
+{#                <input name="age" type="number" min="1" value="{{ form.age.value|default_if_none:"" }}"/>#}
+{#                            {% if form.age.errors %}#}
+{#                    <div class="alert alert-danger">ОШИБКА {{ form.age.errors }}</div>#}
+{#                {% endif %}#}
+{#            </p>#}
+{#            <p>#}
+{#                Languages:<br />#}
+{#                <select name="languages">#}
+{#                    <option value="">Выберите значение</option>#}
+{#                    <option value="Python">Python</option>#}
+{#                    <option value="JavaScript">JavaScript</option>#}
+{#                    <option value="C++">C++</option>#}
+{#                    <option value="Java">Java</option>#}
+{#                 </select>#}
+{#                {% if form.languages.errors %}#}
+{#                    <div class="alert alert-danger">ОШИБКА {{ form.languages.errors }}</div>#}
+{#                {% endif %}#}
+{#                    </p>#}
+{#                <input name="language" type="submit" value="Send"/>#}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="col-md-6 pl-2 ">#}
+{##}
+{#                <p>CHOOSE YOUR DESTINY</p>#}
+{#                <div>#}
+{#                  <input type="radio" id="rave" name="destiny" value="RAVE" />#}
+{#                  <label for="rave">RAVE</label>#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                  <input type="radio" id="vodka" name="destiny" value="VODKA" />#}
+{#                  <label for="vodka">VODKA</label>#}
+{#                </div>#}
+{##}
+{#                <div>#}
+{#                  <input type="radio" id="it" name="destiny" value="IT" />#}
+{#                  <label for="it">IT</label>#}
+{#                </div>#}
+{#                {% if form.destiny.errors %}#}
+{#                    <div class="alert alert-danger">ОШИБКА {{ form.destiny.errors }}</div>#}
+{#                {% endif %}#}
+{##}
+{#    </div>#}
     </form>
+
 </div>
+
+
+<script>
+// Получите элемент слайдера
+var slider = document.getElementById("slider");
+
+// Получите элемент, в котором вы хотите отобразить значение слайдера
+var output = document.getElementById("slider_show");
+
+// Отобразить значение слайдера при его изменении
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>

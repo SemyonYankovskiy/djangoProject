@@ -23,13 +23,14 @@ def postuser(request):
             age = userform.cleaned_data["age"]
             langs = userform.cleaned_data["languages"]
             dest = userform.cleaned_data["destiny"]
-            return HttpResponse(f"""
-                <h2>
-                <div>Name: {name}  Age: {age}<div>
-                <div>Languages: {langs}</div>
-                <div>DESTINY: {dest}</div>
-                </h2>
-            """)
+            return render(request, "result_test.html", {"langs_test":langs,"dest_test":dest})
+            # return HttpResponse(f"""
+            #     <h2>
+            #     <div>Name: {name}  Age: {age}<div>
+            #     <div>Languages: {langs}</div>
+            #     <div>DESTINY: {dest}</div>
+            #     </h2>
+            # """)
 
         return render(request, "new_page.html", {"form": userform})
 

@@ -15,6 +15,13 @@
 
 <main class="container-fluid py-5">
     <div class="container py-4">
+                <h1>
+                <div>Name: {{NAME}}  </div>
+                <div>AGE: {{AGE}}  </div>
+                <div>Languages: {{langs_test}}</div>
+                <div>DESTINY: {{ dest_test }}</div>
+                <div>Number: {{ slide }} </div>
+                </h1>
         {% if dest_test == 'rave' %}
             <h2>ТЫ ПЕКАЧУ</h2>
             <img src="{% static "pika.jpg" %}" alt="Image 1">

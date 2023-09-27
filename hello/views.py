@@ -6,8 +6,9 @@ from django.shortcuts import render
 from django.shortcuts import render
 
 from django.shortcuts import render
-from django.http import HttpResponse
+
 from .forms import UserForm
+from .models import Person
 
 def index(request):
     userform = UserForm()
@@ -23,14 +24,16 @@ def postuser(request):
             age = userform.cleaned_data["age"]
             langs = userform.cleaned_data["languages"]
             dest = userform.cleaned_data["destiny"]
-            return render(request, "result_test.html", {"langs_test":langs,"dest_test":dest})
-            # return HttpResponse(f"""
-            #     <h2>
-            #     <div>Name: {name}  Age: {age}<div>
-            #     <div>Languages: {langs}</div>
-            #     <div>DESTINY: {dest}</div>
-            #     </h2>
-            # """)
+            slide = userform.cleaned_data["slider"]
+            # СОхраненеи в базу
+            name_bd = Person.objects.create(name=name, age=age, languages=langs, destiny=dest, slider=slide)
+
+
+
+
+            data = {"langs_test": langs, "dest_test": dest, "slide": slide, "NAME": name, "AGE": age}
+            return render(request, "result_test.html", context=data)
+
 
         return render(request, "new_page.html", {"form": userform})
 

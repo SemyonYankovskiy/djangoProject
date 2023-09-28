@@ -17,8 +17,25 @@
     <div class="container py-4">
 
         <h1>
-            <div>ПРОВЕРочка имени в базе: {{NAME_1}} {{ error }}  </div>
+            <div>Name: {{NAME}}  </div>
+            <div>AGE: {{AGE}}  </div>
+            <div>Languages: {{langs_test}}</div>
+            <div>DESTINY: {{ dest_test }}</div>
+            <div>Number: {{ slide }} </div>
         </h1>
+        {% if dest_test == 'rave' %}
+            <h2>ТЫ ПЕКАЧУ</h2>
+            <img height="300px" width="300px" src="{% static "pika.jpg" %}" alt="Image 1">
+        {% elif langs_test == 'js' %}
+            <h2>Ты дракон красный, огнеопасный</h2>
+            <img height="300px" width="300px" src="{% static 'Charmander.png' %}" alt="Image 2">
+        {% else %}
+            <h2>ТЫ багуМЯУТ</h2>
+            <img height="300px" width="300px" src="{% static 'kot.jpg' %}" alt="Image 3">
+        {% endif %}
+
+
+        </div>
     </div>
 </main>
 

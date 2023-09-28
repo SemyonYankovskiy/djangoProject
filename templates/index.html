@@ -10,6 +10,7 @@
          <button type="submit" class="btn btn-primary">ЖМИ</button>
 
 
+
 {#    <div class="<col-md></col-md>-6 pl-2 ">#}
 {#            <p>Name: <br />#}
 {#                <input name="name" value="{{ form.name.value|default_if_none:"" }}"/>#}
@@ -63,7 +64,24 @@
 {##}
 {#    </div>#}
     </form>
+    <form class="row align-items-md-stretch my-5" method="get" action="/check">
+        <p>Введи имя для проверки <br/>
+        <input name="my-name" type="text"/>
+            {% if form.name.errors %}
+                <div class="alert alert-danger">ОШИБКА {{ form.name.errors }}</div>
+            {% endif %}
+            <button type="submit" class="btn btn-info">ЧЕК</button>
+        </p>
 
+    </form>
+<div>
+
+<p>
+    <a href="/delete_info" class="btn btn-danger">Удалить данные из базы</a>
+
+    {{ answer }}</p>
+
+</div>
 </div>
 
 
